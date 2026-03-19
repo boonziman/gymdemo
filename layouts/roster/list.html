@@ -7,7 +7,7 @@
 
 <!-- Roster Header -->
 <header class="flex flex-col md:flex-row items-center justify-between border-b border-white/10 pb-4 mb-16 gap-6 md:gap-0">
-  <a href="{{ "/" | relURL }}" class="flex items-center gap-4 text-text-light no-underline">
+  <a href="{{ "" | absURL }}" class="flex items-center gap-4 text-text-light no-underline">
     <div class="size-8 text-primary">
       {{ partial "logo.html" . }}
     </div>
@@ -15,12 +15,12 @@
   </a>
   <div class="flex flex-col md:flex-row items-center gap-8 w-full md:w-auto">
     <nav class="flex items-center gap-6 md:gap-9 w-full md:w-auto justify-center overflow-x-auto pb-2 md:pb-0">
-      <a class="text-text-muted hover:text-primary transition-colors text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap no-underline" href="{{ "/" | relURL }}">HOME</a>
-      <a class="text-text-muted hover:text-primary transition-colors text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap no-underline" href="{{ "/schedule/" | relURL }}">CLASS SCHEDULE</a>
-      <a class="text-primary border-b border-primary pb-1 transition-colors text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap no-underline" href="{{ "/roster/" | relURL }}">THE ROSTER</a>
-      <a class="text-text-muted hover:text-primary transition-colors text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap no-underline" href="{{ "/memberships/" | relURL }}">MEMBERSHIPS</a>
+      <a class="text-text-muted hover:text-primary transition-colors text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap no-underline" href="{{ "" | absURL }}">HOME</a>
+      <a class="text-text-muted hover:text-primary transition-colors text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap no-underline" href="{{ "schedule/" | absURL }}">CLASS SCHEDULE</a>
+      <a class="text-primary border-b border-primary pb-1 transition-colors text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap no-underline" href="{{ "roster/" | absURL }}">THE ROSTER</a>
+      <a class="text-text-muted hover:text-primary transition-colors text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap no-underline" href="{{ "memberships/" | absURL }}">MEMBERSHIPS</a>
     </nav>
-    <a href="{{ "/memberships/" | relURL }}" class="w-full md:w-auto flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden h-12 px-8 bg-primary text-background-dark hover:bg-white transition-all duration-300 text-sm font-heading font-bold uppercase tracking-[0.2em] no-underline">
+    <a href="{{ "memberships/" | absURL }}" class="w-full md:w-auto flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden h-12 px-8 bg-primary text-background-dark hover:bg-white transition-all duration-300 text-sm font-heading font-bold uppercase tracking-[0.2em] no-underline">
       <span>JOIN THE CULT</span>
     </a>
   </div>

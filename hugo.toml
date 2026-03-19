@@ -6,7 +6,7 @@ enableRobotsTXT = true
 [params]
   description = "Peak Fitness — The premier destination for high-intensity biological recalibration. Elite training, tactical conditioning, and performance optimization."
   author = "Peak Fitness"
-  ogImage = "/images/og-image.jpg"
+  ogImage = "images/og-image.jpg"
   twitterHandle = "@peakfitness"
 
 [sitemap]

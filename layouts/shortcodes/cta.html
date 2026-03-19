@@ -1,6 +1,6 @@
 {{/* CTA Button shortcode — usage: {{< cta text="JOIN THE CULT" url="/memberships/" >}} */}}
 {{ $text := .Get "text" | default "JOIN THE CULT" }}
-{{ $url := .Get "url" | default "/memberships/" }}
-<a href="{{ $url | relURL }}" class="flex w-full max-w-[320px] cursor-pointer items-center justify-center bg-primary text-background-dark text-lg font-heading font-bold uppercase tracking-[0.05em] h-16 px-8 hover:bg-white transition-all duration-300 shadow-[8px_8px_0px_#0A0A0A] hover:shadow-[4px_4px_0px_#0A0A0A] hover:translate-y-1 hover:translate-x-1 no-underline mx-auto">
+{{ $url := .Get "url" | default "memberships/" }}
+<a href="{{ $url | absURL }}" class="flex w-full max-w-[320px] cursor-pointer items-center justify-center bg-primary text-background-dark text-lg font-heading font-bold uppercase tracking-[0.05em] h-16 px-8 hover:bg-white transition-all duration-300 shadow-[8px_8px_0px_#0A0A0A] hover:shadow-[4px_4px_0px_#0A0A0A] hover:translate-y-1 hover:translate-x-1 no-underline mx-auto">
   <span class="mt-1">{{ $text }}</span>
 </a>
