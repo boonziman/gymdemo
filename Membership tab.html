@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Peak Fitness - Memberships</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&display=swap');
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#CCFF00", // Volt Green
+                        "background-light": "#F5F5F5",
+                        "background-dark": "#0A0A0A",
+                        "surface-dark": "#171717",
+                        "text-light": "#0A0A0A",
+                        "text-dark": "#F5F5F5",
+                        "muted-dark": "#737373",
+                        "accent": "#FF3366"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "heading": ["Oswald", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "sm": "2px", "lg": "0px", "xl": "0px", "full": "0px"},
+                    animation: {
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'check-pop': 'check-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+                    },
+                    keyframes: {
+                        'check-pop': {
+                            '0%': { transform: 'scale(0) rotate(-10deg)', opacity: '0' },
+                            '100%': { transform: 'scale(1) rotate(0)', opacity: '1' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .font-heading { font-family: 'Oswald', sans-serif; }
+        .font-body { font-family: 'Space Grotesk', sans-serif; }
+        
+        /* Brutalist Shadows */
+        .brutal-shadow-heavy-black {
+            box-shadow: 20px 20px 0px #000000;
+        }
+        .brutal-shadow-heavy-primary {
+            box-shadow: 20px 20px 0px #CCFF00;
+        }
+
+        /* Nano Banana / Brutalist Label Style */
+        .price-tag-wrap {
+            position: relative;
+            display: inline-block;
+        }
+        .price-tag-bg {
+            position: absolute;
+            inset: -4px -12px;
+            background: black;
+            transform: skew(-10deg);
+            z-index: -1;
+        }
+        .elite-tag-bg {
+            position: absolute;
+            inset: -4px -12px;
+            background: white;
+            transform: skew(-10deg);
+            z-index: -1;
+        }
+
+        /* Pulsing Glow for Volt Green */
+        @keyframes volt-pulse {
+            0%, 100% { background-color: #CCFF00; }
+            50% { background-color: #d8ff33; }
+        }
+        .animate-volt {
+            animation: volt-pulse 2s infinite ease-in-out;
+        }
+
+        .feature-item:hover .check-icon {
+            animation: check-pop 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-body min-h-screen flex flex-col antialiased selection:bg-primary selection:text-black">
+<header class="w-full p-6 flex justify-between items-center z-50 fixed top-0 left-0 bg-background-dark/90 backdrop-blur-sm border-b border-[#333]">
+<a class="flex items-center gap-2 text-text-dark hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:-translate-x-1 transition-transform" data-icon="arrow_back" data-weight="regular">arrow_back</span>
+<span class="font-heading font-bold uppercase tracking-widest text-lg">Back</span>
+</a>
+<div class="font-heading font-extrabold text-2xl tracking-tighter text-primary uppercase">PEAK</div>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center px-4 pt-32 pb-32 w-full max-w-7xl mx-auto">
+<div class="w-full text-center mb-16 md:mb-24">
+<h1 class="font-heading font-extrabold text-8xl md:text-[160px] leading-[0.85] tracking-tighter uppercase text-text-dark mb-6">COMMIT<span class="text-primary">.</span></h1>
+<p class="font-body text-muted-dark text-xl md:text-2xl max-w-3xl mx-auto uppercase tracking-[0.2em] font-medium">CHOOSE YOUR SUFFERING. NO REFUNDS. NO EXCUSES.</p>
+</div>
+<div class="w-full flex flex-col lg:flex-row gap-12 lg:gap-16 justify-center items-stretch max-w-6xl px-4">
+<!-- Standard Card -->
+<div class="flex-1 flex flex-col bg-surface-dark border-4 border-white p-10 md:p-14 relative brutal-shadow-heavy-primary transition-transform hover:-translate-y-2 duration-300">
+<div class="flex flex-col gap-6 mb-12">
+<h2 class="font-heading text-4xl md:text-5xl font-extrabold uppercase tracking-tighter text-text-dark">STANDARD</h2>
+<div class="flex items-baseline gap-2">
+<div class="price-tag-wrap">
+<div class="price-tag-bg"></div>
+<span class="relative font-heading text-7xl md:text-[100px] font-black leading-none text-primary italic">$89</span>
+</div>
+<span class="font-heading text-2xl font-bold text-muted-dark uppercase tracking-widest">/MO</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-8 mb-16">
+<div class="feature-item flex items-center gap-5 text-text-dark font-body text-xl group/item">
+<span class="check-icon material-symbols-outlined text-primary text-3xl font-black bg-white/5 p-1" data-icon="check" data-weight="bold">check</span>
+<span class="uppercase tracking-widest font-bold">Full Gym Access</span>
+</div>
+<div class="feature-item flex items-center gap-5 text-muted-dark font-body text-xl opacity-40">
+<span class="material-symbols-outlined text-accent text-3xl font-black" data-icon="close" data-weight="bold">close</span>
+<span class="uppercase tracking-widest line-through decoration-accent decoration-4">Group Classes</span>
+</div>
+<div class="feature-item flex items-center gap-5 text-muted-dark font-body text-xl opacity-40">
+<span class="material-symbols-outlined text-accent text-3xl font-black" data-icon="close" data-weight="bold">close</span>
+<span class="uppercase tracking-widest line-through decoration-accent decoration-4">Personal Training</span>
+</div>
+</div>
+<button class="w-full py-6 px-8 border-4 border-primary text-primary font-heading font-black text-2xl uppercase tracking-[0.2em] hover:bg-primary hover:text-black transition-all duration-300 active:scale-95">
+                CHOOSE STANDARD
+            </button>
+</div>
+<!-- Elite Card (Pulsing Volt) -->
+<div class="flex-1 flex flex-col bg-primary animate-volt p-10 md:p-14 relative brutal-shadow-heavy-black z-10 lg:scale-110 transition-transform hover:scale-[1.12] duration-300">
+<!-- Floating Tag -->
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-primary font-heading font-black px-8 py-3 text-lg uppercase tracking-[0.3em] border-4 border-black shadow-[8px_8px_0px_white]">
+                MOST POPULAR
+            </div>
+<div class="flex flex-col gap-6 mb-12">
+<h2 class="font-heading text-4xl md:text-5xl font-extrabold uppercase tracking-tighter text-black">ELITE</h2>
+<div class="flex items-baseline gap-2">
+<div class="price-tag-wrap">
+<div class="elite-tag-bg"></div>
+<span class="relative font-heading text-7xl md:text-[100px] font-black leading-none text-black italic">$149</span>
+</div>
+<span class="font-heading text-2xl font-bold text-black/60 uppercase tracking-widest">/MO</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-8 mb-16">
+<div class="feature-item flex items-center gap-5 text-black font-body text-xl group/item">
+<span class="check-icon material-symbols-outlined text-black text-3xl font-black bg-black/10 p-1" data-icon="check" data-weight="bold">check</span>
+<span class="uppercase tracking-widest font-black">24/7 Access</span>
+</div>
+<div class="feature-item flex items-center gap-5 text-black font-body text-xl group/item">
+<span class="check-icon material-symbols-outlined text-black text-3xl font-black bg-black/10 p-1" data-icon="check" data-weight="bold">check</span>
+<span class="uppercase tracking-widest font-black">Unlimited Classes</span>
+</div>
+<div class="feature-item flex items-center gap-5 text-black font-body text-xl group/item">
+<span class="check-icon material-symbols-outlined text-black text-3xl font-black bg-black/10 p-1" data-icon="check" data-weight="bold">check</span>
+<span class="uppercase tracking-widest font-black">Monthly PT Session</span>
+</div>
+</div>
+<button class="group w-full py-7 px-8 bg-black text-primary border-4 border-black font-heading font-black text-3xl uppercase tracking-[0.2em] hover:bg-white hover:text-black hover:border-white transition-all duration-300 active:scale-95 shadow-none hover:shadow-[10px_10px_0px_#000]">
+                JOIN THE ELITE
+            </button>
+</div>
+</div>
+</main>
+<!-- Hidden Error Modal - Retained with consistent style -->
+<div class="hidden fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-xl" id="demo-modal-trigger">
+<div class="bg-surface-dark border-[8px] border-accent p-12 max-w-lg w-full text-center relative shadow-[24px_24px_0px_#FF3366]">
+<button class="absolute top-4 right-4 text-muted-dark hover:text-white transition-colors">
+<span class="material-symbols-outlined text-4xl" data-icon="close" data-weight="bold">close</span>
+</button>
+<span class="material-symbols-outlined text-accent text-8xl mb-8" data-icon="warning" data-weight="fill" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h3 class="font-heading font-black text-5xl text-text-dark uppercase mb-4 tracking-tighter">PAYMENT FAILED.</h3>
+<p class="font-body text-accent font-black text-2xl uppercase tracking-widest mb-12 italic">TRY HARDER.</p>
+<button class="w-full py-6 px-8 bg-accent text-white font-heading font-black text-2xl uppercase tracking-widest hover:bg-white hover:text-accent transition-all duration-200">
+            RETRY NOW
+        </button>
+</div>
+</div>
+</body></html>

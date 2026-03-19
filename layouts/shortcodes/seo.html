@@ -1,0 +1,6 @@
+{{/* SEO shortcode — usage: {{< seo title="Page Title" description="..." >}} */}}
+{{ $title := .Get "title" | default .Page.Title }}
+{{ $description := .Get "description" | default .Page.Description }}
+<meta name="description" content="{{ $description }}"/>
+<meta property="og:title" content="{{ $title }}"/>
+<meta property="og:description" content="{{ $description }}"/>

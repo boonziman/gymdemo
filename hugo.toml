@@ -1,0 +1,41 @@
+baseURL = "https://peakfitness.demo/"
+languageCode = "en-us"
+title = "Peak Fitness | Defy Your Limits"
+enableRobotsTXT = true
+
+[params]
+  description = "Peak Fitness — The premier destination for high-intensity biological recalibration. Elite training, tactical conditioning, and performance optimization."
+  author = "Peak Fitness"
+  ogImage = "/images/og-image.jpg"
+  twitterHandle = "@peakfitness"
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Schedule"
+    url = "/schedule/"
+    weight = 2
+  [[menu.main]]
+    name = "Roster"
+    url = "/roster/"
+    weight = 3
+  [[menu.main]]
+    name = "Memberships"
+    url = "/memberships/"
+    weight = 4
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
