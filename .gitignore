@@ -16,3 +16,4 @@ Thumbs.db
 # Node (if using npm for Tailwind build later)
 node_modules/
 package-lock.json
+_reference/
