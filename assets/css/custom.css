@@ -348,15 +348,15 @@ html {
 
 /* ===== Mobile Typing Effect (Schedule heading) ===== */
 @keyframes mobile-typing {
-  from { width: 0; }
-  to   { width: 100%; }
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
 }
 
 .mobile-typing-line {
   display: block;
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
-  width: 0;
+  clip-path: inset(0 100% 0 0);
   animation: mobile-typing 0.8s steps(var(--typing-chars, 10), end) forwards;
   font-family: 'Oswald', sans-serif;
 }
@@ -611,6 +611,7 @@ html {
   .mobile-typing-line {
     width: 100%;
     border-right: none;
+    clip-path: none;
   }
 
   .trainer-image,
