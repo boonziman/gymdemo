@@ -136,6 +136,33 @@
           });
         });
       }
+
+      // Scroll-triggered reveal animations via IntersectionObserver
+      const revealSelectors = '.reveal-up, .reveal-fade, .reveal-left, .mobile-card-reveal, .trainer-card-reveal, .price-card-reveal, .heading-wipe, .line-grow';
+      const revealEls = document.querySelectorAll(revealSelectors);
+
+      if (revealEls.length > 0 && 'IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealEls.forEach(function(el) {
+          revealObserver.observe(el);
+        });
+      } else {
+        // Fallback: show everything immediately
+        revealEls.forEach(function(el) {
+          el.classList.add('revealed');
+        });
+      }
     });
   </script>
 </body>

@@ -4,14 +4,14 @@
 
 <main class="flex-1 flex flex-col items-center justify-center px-4 pt-28 md:pt-32 pb-16 md:pb-32 w-full max-w-7xl mx-auto">
   <div class="w-full text-center mb-16 md:mb-24">
-    <h1 class="font-heading font-extrabold text-6xl sm:text-8xl md:text-[160px] leading-[0.85] tracking-tighter uppercase text-text-dark mb-6">COMMIT<span class="text-primary">.</span></h1>
-    <p class="font-body text-muted-dark text-base sm:text-xl md:text-2xl max-w-3xl mx-auto uppercase tracking-[0.15em] sm:tracking-[0.2em] font-medium">CHOOSE YOUR SUFFERING. NO REFUNDS. NO EXCUSES.</p>
+    <h1 class="font-heading font-extrabold text-6xl sm:text-8xl md:text-[160px] leading-[0.85] tracking-tighter uppercase text-text-dark mb-6 heading-wipe">COMMIT<span class="text-primary">.</span></h1>
+    <p class="font-body text-muted-dark text-base sm:text-xl md:text-2xl max-w-3xl mx-auto uppercase tracking-[0.15em] sm:tracking-[0.2em] font-medium reveal-up" style="--reveal-delay: 0.1s;">CHOOSE YOUR SUFFERING. NO REFUNDS. NO EXCUSES.</p>
   </div>
 
   <div class="w-full flex flex-col lg:flex-row gap-12 lg:gap-16 justify-center items-stretch max-w-6xl px-4">
     
     <!-- Standard Card -->
-    <div class="flex-1 flex flex-col bg-surface-dark border-4 border-white p-8 sm:p-10 md:p-14 relative shadow-[8px_8px_0px_#CCFF00] sm:shadow-[20px_20px_0px_#CCFF00] transition-transform hover:-translate-y-2 duration-300">
+    <div class="flex-1 flex flex-col bg-surface-dark border-4 border-white p-8 sm:p-10 md:p-14 relative shadow-[8px_8px_0px_#CCFF00] sm:shadow-[20px_20px_0px_#CCFF00] transition-transform hover:-translate-y-2 duration-300 price-card-reveal" style="--reveal-delay: 0s;">
       <div class="flex flex-col gap-6 mb-12">
         <h2 class="font-heading text-4xl md:text-5xl font-extrabold uppercase tracking-tighter text-text-dark">STANDARD</h2>
         <div class="flex items-baseline gap-2">
@@ -36,13 +36,13 @@
           <span class="uppercase tracking-widest line-through decoration-accent decoration-4">Personal Training</span>
         </div>
       </div>
-      <button onclick="showDemoModal()" class="w-full py-6 px-8 border-4 border-primary text-primary font-heading font-black text-2xl uppercase tracking-[0.2em] hover:bg-primary hover:text-black transition-all duration-300 active:scale-95">
+      <button onclick="showDemoModal()" class="w-full py-6 px-8 border-4 border-primary text-primary font-heading font-black text-2xl uppercase tracking-[0.2em] hover:bg-primary hover:text-black transition-all duration-300 active:scale-95 mobile-tap-target">
         CHOOSE STANDARD
       </button>
     </div>
 
     <!-- Elite Card (Pulsing Volt) -->
-    <div class="flex-1 flex flex-col bg-primary animate-volt p-8 sm:p-10 md:p-14 relative shadow-[8px_8px_0px_#000] sm:shadow-[20px_20px_0px_#000] z-10 lg:scale-105 transition-transform hover:scale-[1.08] lg:hover:scale-[1.08] duration-300">
+    <div class="flex-1 flex flex-col bg-primary animate-volt p-8 sm:p-10 md:p-14 relative shadow-[8px_8px_0px_#000] sm:shadow-[20px_20px_0px_#000] z-10 lg:scale-105 transition-transform hover:scale-[1.08] lg:hover:scale-[1.08] duration-300 price-card-reveal" style="--reveal-delay: 0.2s;">
       <!-- Floating Tag -->
       <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-primary font-heading font-black px-8 py-3 text-lg uppercase tracking-[0.3em] border-4 border-black shadow-[8px_8px_0px_white]">
         MOST POPULAR
@@ -71,7 +71,7 @@
           <span class="uppercase tracking-widest font-black">Monthly PT Session</span>
         </div>
       </div>
-      <button onclick="showDemoModal()" class="group w-full py-7 px-8 bg-black text-primary border-4 border-black font-heading font-black text-3xl uppercase tracking-[0.2em] hover:bg-white hover:text-black hover:border-white transition-all duration-300 active:scale-95 shadow-none hover:shadow-[10px_10px_0px_#000]">
+      <button onclick="showDemoModal()" class="group w-full py-7 px-8 bg-black text-primary border-4 border-black font-heading font-black text-3xl uppercase tracking-[0.2em] hover:bg-white hover:text-black hover:border-white transition-all duration-300 active:scale-95 shadow-none hover:shadow-[10px_10px_0px_#000] mobile-tap-target cta-glow">
         JOIN THE ELITE
       </button>
     </div>

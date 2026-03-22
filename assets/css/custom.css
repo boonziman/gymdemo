@@ -343,6 +343,247 @@ html {
 
 
 /* ==========================================================================
+   Premium Mobile Animations
+   ========================================================================== */
+
+/* ===== Mobile Typing Effect (Schedule heading) ===== */
+@keyframes mobile-typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+.mobile-typing-line {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  border-right: 3px solid #CCFF00;
+  animation:
+    mobile-typing 0.8s steps(var(--typing-chars, 10), end) forwards,
+    blink-caret 0.75s step-end infinite;
+  font-family: 'Oswald', sans-serif;
+}
+
+.mobile-typing-line:first-child {
+  animation-delay: 0.3s;
+}
+
+/* ===== Scroll Reveal — Fade Up ===== */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.reveal-up.revealed {
+  animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+/* ===== Scroll Reveal — Fade In ===== */
+@keyframes revealFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.reveal-fade {
+  opacity: 0;
+}
+
+.reveal-fade.revealed {
+  animation: revealFade 0.8s ease-out forwards;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+/* ===== Scroll Reveal — Slide from Left ===== */
+@keyframes revealLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.reveal-left.revealed {
+  animation: revealLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+/* ===== Mobile Card Stagger Reveal ===== */
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile-card-reveal {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.mobile-card-reveal.revealed {
+  animation: cardSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--card-index, 0) * 0.1s);
+}
+
+/* ===== Tap Feedback (touch replacement for hover) ===== */
+.mobile-tap-target {
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.mobile-tap-target:active {
+  transform: scale(0.97);
+}
+
+/* ===== Ambient Glow Pulse (premium idle effect) ===== */
+@keyframes ambientGlow {
+  0%, 100% {
+    box-shadow: 0 0 0px rgba(204, 255, 0, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(204, 255, 0, 0.08);
+  }
+}
+
+.ambient-glow {
+  animation: ambientGlow 3s ease-in-out infinite;
+}
+
+/* ===== Border Flash (touch feedback on cards) ===== */
+@keyframes borderFlash {
+  0%   { border-left-color: #CCFF00; }
+  50%  { border-left-color: #fff; }
+  100% { border-left-color: #CCFF00; }
+}
+
+.mobile-card-reveal:active {
+  animation: borderFlash 0.3s ease-out;
+}
+
+/* ===== Trainer Card Mobile Entrance ===== */
+@keyframes trainerReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.trainer-card-reveal {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.trainer-card-reveal.revealed {
+  animation: trainerReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--card-index, 0) * 0.15s);
+}
+
+/* ===== Pricing Card Mobile Entrance ===== */
+@keyframes priceSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.price-card-reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+}
+
+.price-card-reveal.revealed {
+  animation: priceSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+/* ===== Section Heading Entrance ===== */
+@keyframes headingWipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0% 0 0);
+    opacity: 1;
+  }
+}
+
+.heading-wipe {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+}
+
+.heading-wipe.revealed {
+  animation: headingWipe 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+/* ===== Line Draw (decorative rule animation) ===== */
+@keyframes lineGrow {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+.line-grow {
+  width: 0;
+  overflow: hidden;
+}
+
+.line-grow.revealed {
+  animation: lineGrow 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--reveal-delay, 0.2s);
+}
+
+/* ===== CTA Button Glow (mobile pulsing call-to-action) ===== */
+@keyframes ctaGlow {
+  0%, 100% {
+    box-shadow: 0 0 0px rgba(204, 255, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(204, 255, 0, 0.4), 0 0 50px rgba(204, 255, 0, 0.1);
+  }
+}
+
+@media (max-width: 767px) {
+  .cta-glow {
+    animation: ctaGlow 2.5s ease-in-out infinite;
+  }
+}
+
+
+/* ==========================================================================
    Responsive — Small phones (max-width: 480px)
    ========================================================================== */
 
@@ -361,12 +602,16 @@ html {
   .scanline,
   .animate-volt,
   .typing-container,
-  .typing-effect {
+  .typing-effect,
+  .mobile-typing-line,
+  .ambient-glow,
+  .cta-glow {
     animation: none;
   }
 
   .typing-container,
-  .typing-effect {
+  .typing-effect,
+  .mobile-typing-line {
     width: 100%;
     border-right: none;
   }
@@ -376,5 +621,20 @@ html {
   .trainer-info-slide,
   .class-card {
     transition: none;
+  }
+
+  /* Reveal elements shown immediately with no animation */
+  .reveal-up,
+  .reveal-fade,
+  .reveal-left,
+  .mobile-card-reveal,
+  .trainer-card-reveal,
+  .price-card-reveal,
+  .heading-wipe,
+  .line-grow {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    width: auto;
   }
 }

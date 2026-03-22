@@ -12,29 +12,32 @@
 <!-- MOBILE SCHEDULE VIEW (visible < md only)     -->
 <!-- ============================================ -->
 <div class="md:hidden pt-20 px-4 pb-12 bg-[#050505]">
-  <div class="mb-8">
-    <h1 class="font-heading text-[48px] leading-[0.85] text-[#F5F5F5] tracking-tighter mb-3">THE<br/>CRUCIBLE.</h1>
-    <div class="flex items-center gap-2 mt-3">
+  <div class="mb-8 reveal-up">
+    <h1 class="font-heading text-[42px] leading-[0.9] text-[#F5F5F5] tracking-tighter mb-3 overflow-visible">
+      <span class="mobile-typing-line block" style="--typing-chars: 3;">THE</span>
+      <span class="mobile-typing-line block" style="--typing-chars: 9; animation-delay: 1s;">CRUCIBLE.</span>
+    </h1>
+    <div class="flex items-center gap-2 mt-3 reveal-up" style="--reveal-delay: 1.8s;">
       <span class="h-[2px] w-8 bg-primary"></span>
       <span class="text-primary text-[10px] font-black tracking-[0.4em]">ELITE DISCIPLINE ONLY</span>
     </div>
   </div>
 
   <!-- Day pills -->
-  <div class="flex gap-2 overflow-x-auto pb-4 mb-6 -mx-4 px-4 scrollbar-hide">
-    <span class="shrink-0 px-4 py-2 bg-primary/10 border border-primary/30 text-primary text-[10px] font-black tracking-widest">MON</span>
-    <span class="shrink-0 px-4 py-2 bg-primary text-[#050505] text-[10px] font-black tracking-widest">TUE</span>
-    <span class="shrink-0 px-4 py-2 bg-primary/10 border border-primary/30 text-primary text-[10px] font-black tracking-widest">WED</span>
-    <span class="shrink-0 px-4 py-2 bg-primary/10 border border-primary/30 text-primary text-[10px] font-black tracking-widest">THU</span>
-    <span class="shrink-0 px-4 py-2 bg-primary/10 border border-primary/30 text-primary text-[10px] font-black tracking-widest">FRI</span>
-    <span class="shrink-0 px-4 py-2 bg-primary/10 border border-primary/30 text-primary text-[10px] font-black tracking-widest">SAT</span>
-    <span class="shrink-0 px-4 py-2 bg-primary/10 border border-primary/30 text-primary text-[10px] font-black tracking-widest">SUN</span>
+  <div class="flex gap-2 overflow-x-auto pb-4 mb-6 -mx-4 px-4 scrollbar-hide reveal-up" style="--reveal-delay: 0.2s;">
+    <span class="shrink-0 px-4 py-2 bg-primary/10 border border-primary/30 text-primary text-[10px] font-black tracking-widest mobile-tap-target">MON</span>
+    <span class="shrink-0 px-4 py-2 bg-primary text-[#050505] text-[10px] font-black tracking-widest mobile-tap-target">TUE</span>
+    <span class="shrink-0 px-4 py-2 bg-primary/10 border border-primary/30 text-primary text-[10px] font-black tracking-widest mobile-tap-target">WED</span>
+    <span class="shrink-0 px-4 py-2 bg-primary/10 border border-primary/30 text-primary text-[10px] font-black tracking-widest mobile-tap-target">THU</span>
+    <span class="shrink-0 px-4 py-2 bg-primary/10 border border-primary/30 text-primary text-[10px] font-black tracking-widest mobile-tap-target">FRI</span>
+    <span class="shrink-0 px-4 py-2 bg-primary/10 border border-primary/30 text-primary text-[10px] font-black tracking-widest mobile-tap-target">SAT</span>
+    <span class="shrink-0 px-4 py-2 bg-primary/10 border border-primary/30 text-primary text-[10px] font-black tracking-widest mobile-tap-target">SUN</span>
   </div>
 
   <!-- Mobile Class Cards -->
   <div class="flex flex-col gap-3">
     <!-- MON 06:00 -->
-    <div class="bg-[#111] border-l-4 border-primary p-5">
+    <div class="bg-[#111] border-l-4 border-primary p-5 mobile-card-reveal mobile-tap-target" style="--card-index: 0;">
       <div class="flex items-center justify-between mb-2">
         <span class="text-[10px] text-primary font-black tracking-[0.2em]">MON · 06:00 – 07:00</span>
         <span class="text-[9px] text-muted tracking-widest">[STRENGTH]</span>
@@ -44,7 +47,7 @@
     </div>
 
     <!-- TUE 08:00 -->
-    <div class="bg-[#111] border-l-4 border-primary p-5">
+    <div class="bg-[#111] border-l-4 border-primary p-5 mobile-card-reveal mobile-tap-target" style="--card-index: 1;">
       <div class="flex items-center justify-between mb-2">
         <span class="text-[10px] text-primary font-black tracking-[0.2em]">TUE · 08:00 – 09:00</span>
         <span class="text-[9px] text-muted tracking-widest">[HIIT]</span>
@@ -54,7 +57,7 @@
     </div>
 
     <!-- TUE 13:00 (FULL) -->
-    <div class="bg-[#1A0505] border-l-4 border-accent p-5 relative">
+    <div class="bg-[#1A0505] border-l-4 border-accent p-5 relative mobile-card-reveal mobile-tap-target" style="--card-index: 2;">
       <div class="absolute top-0 right-0 bg-accent px-3 py-1 text-[#050505] text-[10px] font-black tracking-tighter">FULL</div>
       <div class="flex items-center justify-between mb-2">
         <span class="text-[10px] text-accent font-black tracking-[0.2em]">TUE · 13:00 – 14:30</span>
@@ -65,7 +68,7 @@
     </div>
 
     <!-- WED 07:00 -->
-    <div class="bg-[#111] border-l-4 border-primary p-5">
+    <div class="bg-[#111] border-l-4 border-primary p-5 mobile-card-reveal mobile-tap-target" style="--card-index: 3;">
       <div class="flex items-center justify-between mb-2">
         <span class="text-[10px] text-primary font-black tracking-[0.2em]">WED · 07:00 – 08:00</span>
         <span class="text-[9px] text-muted tracking-widest">[STRENGTH]</span>
@@ -75,7 +78,7 @@
     </div>
 
     <!-- THU 17:00 -->
-    <div class="bg-[#111] border-l-4 border-primary p-5">
+    <div class="bg-[#111] border-l-4 border-primary p-5 mobile-card-reveal mobile-tap-target" style="--card-index: 4;">
       <div class="flex items-center justify-between mb-2">
         <span class="text-[10px] text-primary font-black tracking-[0.2em]">THU · 17:00 – 18:00</span>
         <span class="text-[9px] text-muted tracking-widest">[STRENGTH]</span>
@@ -86,7 +89,7 @@
   </div>
 
   <!-- Mobile CTA -->
-  <a href="{{ "memberships/" | absURL }}" class="mt-8 w-full bg-primary text-[#050505] font-heading font-bold py-4 uppercase tracking-widest text-center no-underline block text-lg">
+  <a href="{{ "memberships/" | absURL }}" class="mt-8 w-full bg-primary text-[#050505] font-heading font-bold py-4 uppercase tracking-widest text-center no-underline block text-lg reveal-up mobile-tap-target" style="--reveal-delay: 0.5s;">
     SECURE YOUR SPOT
   </a>
 </div>
