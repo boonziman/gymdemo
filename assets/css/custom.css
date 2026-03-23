@@ -346,6 +346,43 @@ html {
    Premium Mobile Animations
    ========================================================================== */
 
+/* ===== Mobile Typing Effect (Schedule heading) ===== */
+@keyframes mobileType {
+  from { max-width: 0; }
+  to   { max-width: calc(var(--chars, 10) * 1ch + 0.5ch); }
+}
+
+@keyframes mobileCaretBlink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+.mobile-type-row {
+  display: block;
+  line-height: 0.9;
+}
+
+.mobile-typing-line {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top;
+  max-width: 0;
+  animation: mobileType var(--typing-duration, 0.9s) steps(var(--chars, 10), end) forwards;
+  animation-delay: var(--typing-delay, 0s);
+}
+
+.mobile-typing-line.has-caret::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  background: #CCFF00;
+  margin-left: 2px;
+  vertical-align: -0.02em;
+  animation: mobileCaretBlink 0.8s step-end infinite;
+}
+
 /* ===== Scroll Reveal — Fade Up ===== */
 @keyframes revealUp {
   from {
@@ -581,17 +618,22 @@ html {
   .animate-volt,
   .typing-container,
   .typing-effect,
-  .mobile-typing-line,
   .ambient-glow,
   .cta-glow {
     animation: none;
   }
 
   .typing-container,
-  .typing-effect {
+  .typing-effect,
+  .mobile-typing-line {
     width: 100%;
     border-right: none;
     clip-path: none;
+    max-width: none;
+  }
+
+  .mobile-typing-line.has-caret::after {
+    animation: none;
   }
 
   .trainer-image,
