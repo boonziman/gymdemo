@@ -346,25 +346,6 @@ html {
    Premium Mobile Animations
    ========================================================================== */
 
-/* ===== Mobile Typing Effect (Schedule heading) ===== */
-@keyframes mobile-typing {
-  from { clip-path: inset(0 100% 0 0); }
-  to   { clip-path: inset(0 0% 0 0); }
-}
-
-.mobile-typing-line {
-  display: block;
-  overflow: visible;
-  white-space: nowrap;
-  clip-path: inset(0 100% 0 0);
-  animation: mobile-typing 0.8s steps(var(--typing-chars, 10), end) forwards;
-  font-family: 'Oswald', sans-serif;
-}
-
-.mobile-typing-line:first-child {
-  animation-delay: 0.3s;
-}
-
 /* ===== Scroll Reveal — Fade Up ===== */
 @keyframes revealUp {
   from {
@@ -607,8 +588,7 @@ html {
   }
 
   .typing-container,
-  .typing-effect,
-  .mobile-typing-line {
+  .typing-effect {
     width: 100%;
     border-right: none;
     clip-path: none;
