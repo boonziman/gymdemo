@@ -395,16 +395,14 @@ html {
   }
 }
 
-@media (max-width: 767px) {
-  .reveal-up {
-    opacity: 0;
-    transform: translateY(30px);
-  }
+html.js-reveal .reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
 
-  .reveal-up.revealed {
-    animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: var(--reveal-delay, 0s);
-  }
+html.js-reveal .reveal-up.revealed {
+  animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--reveal-delay, 0s);
 }
 
 /* ===== Scroll Reveal — Fade In ===== */
@@ -413,15 +411,13 @@ html {
   to   { opacity: 1; }
 }
 
-@media (max-width: 767px) {
-  .reveal-fade {
-    opacity: 0;
-  }
+html.js-reveal .reveal-fade {
+  opacity: 0;
+}
 
-  .reveal-fade.revealed {
-    animation: revealFade 0.8s ease-out forwards;
-    animation-delay: var(--reveal-delay, 0s);
-  }
+html.js-reveal .reveal-fade.revealed {
+  animation: revealFade 0.8s ease-out forwards;
+  animation-delay: var(--reveal-delay, 0s);
 }
 
 /* ===== Scroll Reveal — Slide from Left ===== */
@@ -436,16 +432,14 @@ html {
   }
 }
 
-@media (max-width: 767px) {
-  .reveal-left {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
+html.js-reveal .reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
 
-  .reveal-left.revealed {
-    animation: revealLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: var(--reveal-delay, 0s);
-  }
+html.js-reveal .reveal-left.revealed {
+  animation: revealLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--reveal-delay, 0s);
 }
 
 /* ===== Mobile Card Stagger Reveal ===== */
@@ -460,16 +454,14 @@ html {
   }
 }
 
-@media (max-width: 767px) {
-  .mobile-card-reveal {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
+html.js-reveal .mobile-card-reveal {
+  opacity: 0;
+  transform: translateX(-20px);
+}
 
-  .mobile-card-reveal.revealed {
-    animation: cardSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: calc(var(--card-index, 0) * 0.1s);
-  }
+html.js-reveal .mobile-card-reveal.revealed {
+  animation: cardSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--card-index, 0) * 0.1s);
 }
 
 /* ===== Tap Feedback (touch replacement for hover) ===== */
@@ -519,16 +511,14 @@ html {
   }
 }
 
-@media (max-width: 767px) {
-  .trainer-card-reveal {
-    opacity: 0;
-    transform: scale(0.95);
-  }
+html.js-reveal .trainer-card-reveal {
+  opacity: 0;
+  transform: scale(0.95);
+}
 
-  .trainer-card-reveal.revealed {
-    animation: trainerReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: calc(var(--card-index, 0) * 0.15s);
-  }
+html.js-reveal .trainer-card-reveal.revealed {
+  animation: trainerReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--card-index, 0) * 0.15s);
 }
 
 /* ===== Pricing Card Mobile Entrance ===== */
@@ -543,16 +533,14 @@ html {
   }
 }
 
-@media (max-width: 767px) {
-  .price-card-reveal {
-    opacity: 0;
-    transform: translateY(40px) scale(0.98);
-  }
+html.js-reveal .price-card-reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+}
 
-  .price-card-reveal.revealed {
-    animation: priceSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: var(--reveal-delay, 0s);
-  }
+html.js-reveal .price-card-reveal.revealed {
+  animation: priceSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--reveal-delay, 0s);
 }
 
 /* ===== Section Heading Entrance ===== */
@@ -567,16 +555,14 @@ html {
   }
 }
 
-@media (max-width: 767px) {
-  .heading-wipe {
-    opacity: 0;
-    clip-path: inset(0 100% 0 0);
-  }
+html.js-reveal .heading-wipe {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+}
 
-  .heading-wipe.revealed {
-    animation: headingWipe 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: var(--reveal-delay, 0s);
-  }
+html.js-reveal .heading-wipe.revealed {
+  animation: headingWipe 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--reveal-delay, 0s);
 }
 
 /* ===== Line Draw (decorative rule animation) ===== */
@@ -585,16 +571,14 @@ html {
   to   { width: 100%; }
 }
 
-@media (max-width: 767px) {
-  .line-grow {
-    width: 0;
-    overflow: hidden;
-  }
+html.js-reveal .line-grow {
+  width: 0;
+  overflow: hidden;
+}
 
-  .line-grow.revealed {
-    animation: lineGrow 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: var(--reveal-delay, 0.2s);
-  }
+html.js-reveal .line-grow.revealed {
+  animation: lineGrow 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--reveal-delay, 0.2s);
 }
 
 /* ===== CTA Button Glow (mobile pulsing call-to-action) ===== */
@@ -659,7 +643,15 @@ html {
     transition: none;
   }
 
-  /* Reveal elements shown immediately with no animation */
+  /* Override js-reveal hidden states — show everything immediately */
+  html.js-reveal .reveal-up,
+  html.js-reveal .reveal-fade,
+  html.js-reveal .reveal-left,
+  html.js-reveal .mobile-card-reveal,
+  html.js-reveal .trainer-card-reveal,
+  html.js-reveal .price-card-reveal,
+  html.js-reveal .heading-wipe,
+  html.js-reveal .line-grow,
   .reveal-up,
   .reveal-fade,
   .reveal-left,
@@ -668,9 +660,10 @@ html {
   .price-card-reveal,
   .heading-wipe,
   .line-grow {
-    opacity: 1;
-    transform: none;
-    clip-path: none;
-    width: auto;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    width: auto !important;
+    animation: none !important;
   }
 }

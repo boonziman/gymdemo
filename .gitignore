@@ -13,7 +13,6 @@ Thumbs.db
 *.swo
 *~
 
-# Node (if using npm for Tailwind build later)
+# Node (Tailwind build deps)
 node_modules/
-package-lock.json
 _reference/

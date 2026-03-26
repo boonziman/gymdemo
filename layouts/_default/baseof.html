@@ -45,81 +45,30 @@
   </script>
   {{ end }}
 
-  {{/* Fonts */}}
+  {{/* Preconnect for external resources */}}
   <meta name="theme-color" content="#0A0A0A"/>
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin/>
-  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com"/>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://lh3.googleusercontent.com"/>
+  <link rel="dns-prefetch" href="https://lh3.googleusercontent.com"/>
+  <link rel="preconnect" href="https://images.unsplash.com"/>
+  <link rel="dns-prefetch" href="https://images.unsplash.com"/>
+
+  {{/* Google Fonts — non-render-blocking with preload */}}
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/></noscript>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
   <noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/></noscript>
 
-  {{/* Tailwind CDN */}}
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#CCFF00",
-            "background-light": "#f8f8f6",
-            "background-dark": "#0A0A0A",
-            "surface": "#171717",
-            "surface-dark": "#121212",
-            "muted": "#737373",
-            "muted-dark": "#737373",
-            "accent": "#FF3366",
-            "text-light": "#F5F5F5",
-            "text-dark": "#F5F5F5",
-            "text-muted": "#525252",
-          },
-          fontFamily: {
-            "display": ["Space Grotesk", "sans-serif"],
-            "heading": ["Oswald", "sans-serif"],
-            "body": ["Space Grotesk", "sans-serif"],
-          },
-          borderRadius: {
-            "DEFAULT": "0px",
-            "sm": "0px",
-            "lg": "0px",
-            "xl": "0px",
-            "full": "0px"
-          },
-          animation: {
-            'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'check-pop': 'check-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
-            'volt-pulse': 'volt-pulse 2s infinite ease-in-out',
-            'pulse-glow-red': 'pulse-glow-red 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'scanline-move': 'scanline-move 8s linear infinite',
-          },
-          keyframes: {
-            'check-pop': {
-              '0%': { transform: 'scale(0) rotate(-10deg)', opacity: '0' },
-              '100%': { transform: 'scale(1) rotate(0)', opacity: '1' },
-            },
-            'volt-pulse': {
-              '0%, 100%': { backgroundColor: '#CCFF00' },
-              '50%': { backgroundColor: '#d8ff33' },
-            },
-            'pulse-glow-red': {
-              '0%, 100%': { boxShadow: '0 0 10px rgba(255, 0, 51, 0.3), inset 0 0 5px rgba(255, 0, 51, 0.2)' },
-              '50%': { boxShadow: '0 0 30px rgba(255, 0, 51, 0.7), inset 0 0 15px rgba(255, 0, 51, 0.4)' },
-            },
-            'scanline-move': {
-              '0%': { transform: 'translateY(-100%)' },
-              '100%': { transform: 'translateY(100%)' },
-            },
-          },
-        },
-      },
-    }
-  </script>
-
-  {{/* Custom Styles — loaded from assets/css/custom.css */}}
-  {{ $css := resources.Get "css/custom.css" | minify | fingerprint }}
+  {{/* Tailwind CSS — built at compile time via PostCSS (no CDN) */}}
+  {{ $tw := resources.Get "css/tailwind.css" | css.PostCSS }}
+  {{ $custom := resources.Get "css/custom.css" }}
+  {{ $css := slice $tw $custom | resources.Concat "css/bundle.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous"/>
+
+  {{/* Enable JS-driven reveal animations (elements start hidden only when JS is ready) */}}
+  <script>document.documentElement.classList.add('js-reveal');</script>
 
   {{ block "head" . }}{{ end }}
 </head>
@@ -127,12 +76,12 @@
   
   {{ block "main" . }}{{ end }}
 
-  {{/* Smooth page transitions */}}
+  {{/* Page interactions */}}
   <script>
-    // Mobile menu toggle — handle ALL toggle buttons (open + close)
+    // Mobile menu toggle
     document.addEventListener('DOMContentLoaded', function() {
-      const toggleBtns = document.querySelectorAll('[data-mobile-menu-toggle]');
-      const mobileMenu = document.querySelector('[data-mobile-menu]');
+      var toggleBtns = document.querySelectorAll('[data-mobile-menu-toggle]');
+      var mobileMenu = document.querySelector('[data-mobile-menu]');
       if (mobileMenu) {
         toggleBtns.forEach(function(btn) {
           btn.addEventListener('click', function() {
@@ -142,11 +91,11 @@
       }
 
       // Scroll-triggered reveal animations via IntersectionObserver
-      const revealSelectors = '.reveal-up, .reveal-fade, .reveal-left, .mobile-card-reveal, .trainer-card-reveal, .price-card-reveal, .heading-wipe, .line-grow';
-      const revealEls = document.querySelectorAll(revealSelectors);
+      var revealSelectors = '.reveal-up, .reveal-fade, .reveal-left, .mobile-card-reveal, .trainer-card-reveal, .price-card-reveal, .heading-wipe, .line-grow';
+      var revealEls = document.querySelectorAll(revealSelectors);
 
       if (revealEls.length > 0 && 'IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver(function(entries) {
+        var revealObserver = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
               entry.target.classList.add('revealed');
@@ -154,15 +103,24 @@
             }
           });
         }, {
-          threshold: 0.15,
-          rootMargin: '0px 0px -40px 0px'
+          threshold: 0.1,
+          rootMargin: '0px 0px -30px 0px'
         });
 
         revealEls.forEach(function(el) {
           revealObserver.observe(el);
         });
+
+        // Safety net: reveal anything still hidden after 4 seconds
+        setTimeout(function() {
+          revealEls.forEach(function(el) {
+            if (!el.classList.contains('revealed')) {
+              el.classList.add('revealed');
+            }
+          });
+        }, 4000);
       } else {
-        // Fallback: show everything immediately
+        // No IO support — show everything immediately
         revealEls.forEach(function(el) {
           el.classList.add('revealed');
         });
