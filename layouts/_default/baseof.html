@@ -45,6 +45,9 @@
   </script>
   {{ end }}
 
+  {{/* Favicon — prevents 404 console error */}}
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230A0A0A'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' fill='%23ADFF00' font-size='20' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E"/>
+
   {{/* Preconnect for external resources */}}
   <meta name="theme-color" content="#0A0A0A"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -54,18 +57,17 @@
   <link rel="preconnect" href="https://images.unsplash.com"/>
   <link rel="dns-prefetch" href="https://images.unsplash.com"/>
 
-  {{/* Google Fonts — non-render-blocking with preload */}}
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"/>
+  {{/* Google Fonts — async load (no preload to avoid bandwidth contention on slow 4G) */}}
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
   <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/></noscript>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
   <noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/></noscript>
 
-  {{/* Tailwind CSS — built at compile time via PostCSS (no CDN) */}}
+  {{/* Tailwind CSS — inlined to eliminate render-blocking request on slow 4G */}}
   {{ $tw := resources.Get "css/tailwind.css" | css.PostCSS }}
   {{ $custom := resources.Get "css/custom.css" }}
-  {{ $css := slice $tw $custom | resources.Concat "css/bundle.css" | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous"/>
+  {{ $css := slice $tw $custom | resources.Concat "css/bundle.css" | minify }}
+  <style>{{ $css.Content | safeCSS }}</style>
 
   {{/* Enable JS-driven reveal animations (elements start hidden only when JS is ready) */}}
   <script>document.documentElement.classList.add('js-reveal');</script>

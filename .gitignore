@@ -16,3 +16,5 @@ Thumbs.db
 # Node (Tailwind build deps)
 node_modules/
 _reference/
+lh-*.json
+_lh_*.py
