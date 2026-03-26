@@ -400,11 +400,11 @@ html {
     opacity: 0;
     transform: translateY(30px);
   }
-}
 
-.reveal-up.revealed {
-  animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: var(--reveal-delay, 0s);
+  .reveal-up.revealed {
+    animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--reveal-delay, 0s);
+  }
 }
 
 /* ===== Scroll Reveal — Fade In ===== */
@@ -417,11 +417,11 @@ html {
   .reveal-fade {
     opacity: 0;
   }
-}
 
-.reveal-fade.revealed {
-  animation: revealFade 0.8s ease-out forwards;
-  animation-delay: var(--reveal-delay, 0s);
+  .reveal-fade.revealed {
+    animation: revealFade 0.8s ease-out forwards;
+    animation-delay: var(--reveal-delay, 0s);
+  }
 }
 
 /* ===== Scroll Reveal — Slide from Left ===== */
@@ -441,11 +441,11 @@ html {
     opacity: 0;
     transform: translateX(-40px);
   }
-}
 
-.reveal-left.revealed {
-  animation: revealLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: var(--reveal-delay, 0s);
+  .reveal-left.revealed {
+    animation: revealLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--reveal-delay, 0s);
+  }
 }
 
 /* ===== Mobile Card Stagger Reveal ===== */
@@ -465,11 +465,11 @@ html {
     opacity: 0;
     transform: translateX(-20px);
   }
-}
 
-.mobile-card-reveal.revealed {
-  animation: cardSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: calc(var(--card-index, 0) * 0.1s);
+  .mobile-card-reveal.revealed {
+    animation: cardSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--card-index, 0) * 0.1s);
+  }
 }
 
 /* ===== Tap Feedback (touch replacement for hover) ===== */
@@ -524,11 +524,11 @@ html {
     opacity: 0;
     transform: scale(0.95);
   }
-}
 
-.trainer-card-reveal.revealed {
-  animation: trainerReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: calc(var(--card-index, 0) * 0.15s);
+  .trainer-card-reveal.revealed {
+    animation: trainerReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--card-index, 0) * 0.15s);
+  }
 }
 
 /* ===== Pricing Card Mobile Entrance ===== */
@@ -548,11 +548,11 @@ html {
     opacity: 0;
     transform: translateY(40px) scale(0.98);
   }
-}
 
-.price-card-reveal.revealed {
-  animation: priceSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: var(--reveal-delay, 0s);
+  .price-card-reveal.revealed {
+    animation: priceSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--reveal-delay, 0s);
+  }
 }
 
 /* ===== Section Heading Entrance ===== */
@@ -572,11 +572,11 @@ html {
     opacity: 0;
     clip-path: inset(0 100% 0 0);
   }
-}
 
-.heading-wipe.revealed {
-  animation: headingWipe 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: var(--reveal-delay, 0s);
+  .heading-wipe.revealed {
+    animation: headingWipe 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--reveal-delay, 0s);
+  }
 }
 
 /* ===== Line Draw (decorative rule animation) ===== */
@@ -590,11 +590,11 @@ html {
     width: 0;
     overflow: hidden;
   }
-}
 
-.line-grow.revealed {
-  animation: lineGrow 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: var(--reveal-delay, 0.2s);
+  .line-grow.revealed {
+    animation: lineGrow 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--reveal-delay, 0.2s);
+  }
 }
 
 /* ===== CTA Button Glow (mobile pulsing call-to-action) ===== */

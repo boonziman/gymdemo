@@ -19,7 +19,7 @@
   </div>
   {{/* Mobile Menu Button */}}
   <div class="md:hidden flex items-center">
-    <button data-mobile-menu-toggle class="text-[#F5F5F5] hover:text-primary p-2">
+    <button data-mobile-menu-toggle class="text-[#F5F5F5] hover:text-primary p-2" aria-label="Open menu">
       <span class="material-symbols-outlined text-3xl">menu</span>
     </button>
   </div>
@@ -27,7 +27,7 @@
 
 {{/* Mobile Menu Overlay */}}
 <div data-mobile-menu class="hidden fixed inset-0 z-[60] bg-[#0A0A0A]/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 md:hidden">
-  <button data-mobile-menu-toggle class="absolute top-6 right-6 text-[#F5F5F5] hover:text-primary">
+  <button data-mobile-menu-toggle class="absolute top-6 right-6 text-[#F5F5F5] hover:text-primary" aria-label="Close menu">
     <span class="material-symbols-outlined text-4xl">close</span>
   </button>
   <a class="text-[#F5F5F5] hover:text-primary text-2xl font-heading font-bold uppercase tracking-widest transition-colors" href="{{ "" | absURL }}">HOME</a>
