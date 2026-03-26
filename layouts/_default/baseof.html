@@ -60,14 +60,15 @@
   {{/* Google Fonts — async load (no preload to avoid bandwidth contention on slow 4G) */}}
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
   <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/></noscript>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&icon_names=analytics,bolt,cancel,check,check_circle,close,database,expand_more,menu,person,psychology,schedule,warning&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&icon_names=analytics,bolt,cancel,check,check_circle,close,database,expand_more,menu,person,psychology,schedule,warning&display=swap" rel="stylesheet"/></noscript>
 
-  {{/* Tailwind CSS — inlined to eliminate render-blocking request on slow 4G */}}
+  {{/* Tailwind CSS — built at compile time, external for parallel download + caching */}}
   {{ $tw := resources.Get "css/tailwind.css" | css.PostCSS }}
   {{ $custom := resources.Get "css/custom.css" }}
-  {{ $css := slice $tw $custom | resources.Concat "css/bundle.css" | minify }}
-  <style>{{ $css.Content | safeCSS }}</style>
+  {{ $css := slice $tw $custom | resources.Concat "css/bundle.css" | minify | fingerprint }}
+  <link rel="preload" as="style" href="{{ $css.Permalink }}"/>
+  <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous"/>
 
   {{/* Enable JS-driven reveal animations (elements start hidden only when JS is ready) */}}
   <script>document.documentElement.classList.add('js-reveal');</script>
