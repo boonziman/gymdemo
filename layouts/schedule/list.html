@@ -265,7 +265,7 @@
 </div>
 
 <!-- Enhanced Modal Overlay (Hidden — JS can toggle) -->
-<div id="class-modal" class="hidden fixed inset-0 z-[100] bg-[#050505]/95 backdrop-blur-xl flex items-center justify-center p-4">
+<div id="class-modal" class="hidden fixed inset-0 z-[100] bg-[#050505]/95 backdrop-blur-xl flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Class details">
   <div class="bg-[#111] border-l-[8px] md:border-l-[20px] border-l-primary max-w-xl w-full p-6 sm:p-10 md:p-16 relative shadow-[20px_20px_0px_0px_rgba(204,255,0,0.05)] md:shadow-[40px_40px_0px_0px_rgba(204,255,0,0.05)] border border-[#1A1A1A]">
     <button onclick="document.getElementById('class-modal').classList.add('hidden')" class="absolute top-8 right-8 text-muted hover:text-primary transition-all hover:rotate-90" aria-label="Close modal">
       <span class="material-symbols-outlined text-5xl">close</span>
